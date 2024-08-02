@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(116, 2, 21); color: white"> 
+    /*
+    0	UNSENT	Client has been created. open() not called yet.
+    1	OPENED	open() has been called.
+    2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+    3	LOADING	Downloading; responseText holds partial data.
+    4	DONE	The operation is complete.
+    */
+    
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/Moni-Chaurasiya';
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) { // Check if the request is complete
+            const data = JSON.parse(this.responseText)
+            console.log(data);
+            console.log(data.followers)
+            if (xhr.status === 200) { // Check if the status is OK
+                console.log(xhr.responseText); // Log the response
+            } else {
+                console.error('Error:', xhr.statusText); // Log the error status
+            }
+        }
+    };
+    xhr.send();
+</script>
+<!-- API (Application Programming Interface): An API is a set of rules and protocols for building and interacting with software applications. It allows different software systems to communicate with each other. -->
+
+<!-- API Request: When you send an API request, you are essentially asking a server to perform a task or provide data. In the case of a GET request, you are requesting data from a server. The server processes your request and sends back a response, which can be data or a confirmation of the requested operation. -->
+
+<!-- V8 Engine: V8 is a high-performance JavaScript and WebAssembly engine developed by Google. It is open-source and used primarily in Google Chrome and Node.js. -->
+
+<!-- Features of V8: -->
+
+<!-- Execution of JavaScript: V8 compiles JavaScript code into machine code at runtime, which allows it to execute JavaScript quickly and efficiently. -->
+
+<!-- Just-In-Time Compilation (JIT): V8 uses JIT compilation to improve performance. It compiles the JavaScript code to native machine code before executing it, rather than interpreting it line by line. -->
+
+<!-- Memory Management: V8 includes a garbage collector that automatically manages memory, freeing up space occupied by objects that are no longer in use. -->
+
+<!-- Optimizations: V8 employs various optimization techniques to make JavaScript execution faster, such as inline caching and hidden classes. -->
+ 
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Moni aur Moni</h1>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+</body>
+<script>
+    const sayMoni = function(){
+        console.log("Moni");
+    }
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "JavaScript aur JavaScript"
+    }
+    const changeToOriginal = function(){
+        document.querySelector('h1').innerHTML = "Moni aur Moni"
+    }
+
+  //  const changeMe = setTimeout(()=>changeText(), 2000)
+  const changeMe = setTimeout(function() {
+    changeText();
+  }, 4000); // Using anonymous function
+
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeMe)
+        console.log("STOPPED")
+    })
+
+    const sayDate=  setInterval(function(){
+       console.log('Started',Date.now())
+    },100000) 
+/*
+    const repeat=setInterval(sayDate,1000000,"Hii")
+
+    document.querySelector('#start').addEventListener('click', function(){
+       //setInterval(repeat)
+    })
+*/
+
+</script>
+</html>
